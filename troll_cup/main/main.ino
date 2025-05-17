@@ -17,12 +17,7 @@ int buttonLeftState = 0;   // variable for reading the pushbutton status
 int buttonRightState = 0;  // variable for reading the pushbutton status
 int busy = 0;
 
-int leftTrack = 1;
-int rightTrack = 1;
-
-int leftTrackCount = 0;
-int rightTrackCount = 0;
-int folderCounts[3];
+int folderCounts[3];  // how many files are in folder 1/2/3
 
 void setup() {
   FPSerial.begin(9600);
@@ -60,52 +55,34 @@ void setup() {
 }
 
 void loop() {
-  // TODO: loop through tracks until error and then reset tracklist
-  // 001 - 011: left
-  // 012 - 023: right
-  // 024: coffee
-  // 025: portal radio
-
   buttonLeftState = digitalRead(buttonLeftPin);
   buttonRightState = digitalRead(buttonRightPin);
+
   if (buttonLeftState == HIGH && buttonRightState == HIGH && busy == 0) {
-    myDFPlayer.play(1);
+    int track = random(1, folderCounts[2]);
+    myDFPlayer.playFolder(3, track);
     busy = 1;
     delay(500);
   }
 
-  if (buttonLeftState == HIGH && busy == 0) {
-    myDFPlayer.play(5);
+  else if (buttonLeftState == HIGH && busy == 0) {
+    int track = random(1, folderCounts[0]);
+    myDFPlayer.playFolder(1, track);
     busy = 1;
     delay(500);
   }
 
-  if (buttonRightState == HIGH && busy == 0) {
-    myDFPlayer.play(4);
+  else if (buttonRightState == HIGH && busy == 0) {
+    int track = random(1, folderCounts[1]);
+    myDFPlayer.playFolder(2, track);
     busy = 1;
     delay(500);
   }
+
   if (myDFPlayer.available()) {
     printDetail(myDFPlayer.readType(), myDFPlayer.read());  // shows Number:2 Play Finished! after file finishes, not if it is skipped midway
     if (myDFPlayer.readType() == DFPlayerPlayFinished) {
       Serial.println(F("No longer busy!"));
-
-      Serial.print(F("Current file:"));
-      Serial.println(myDFPlayer.readCurrentFileNumber(DFPLAYER_DEVICE_SD)); // always says 5,actually readFileCounts()?
-      Serial.println(myDFPlayer.readCurrentFileNumber(DFPLAYER_DEVICE_SD)); // always says 5,actually readFileCounts()?
-
-      delay(100);
-      Serial.print(F("Files in 1 count:"));
-      Serial.println(folderCounts[0]); // accurate?
-      Serial.print(F("Files in 2 count:"));
-      Serial.println(folderCounts[1]); // accurate?
-      Serial.print(F("Files in 3 count:"));
-      Serial.println(folderCounts[2]); // accurate?
-      // 4 = are you stil there
-      // 5 = get mad
-      // 0 = lemons
-      // folder count = 1
-
       busy = 0;
       delay(500);
     }
