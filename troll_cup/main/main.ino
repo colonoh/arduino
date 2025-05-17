@@ -5,7 +5,10 @@ To get started see https://wiki.dfrobot.com/DFPlayer_Mini_SKU_DFR0299
 #include "Arduino.h"
 #include "DFRobotDFPlayerMini.h"
 
-#define FPSerial Serial1
+#include <SoftwareSerial.h>
+
+SoftwareSerial softSerial(/*rx =*/10, /*tx =*/11);
+#define FPSerial softSerial
 
 DFRobotDFPlayerMini myDFPlayer;
 void printDetail(uint8_t type, int value);
@@ -48,9 +51,9 @@ void setup() {
 
   // Get how many files are in each folder
   for (int i = 1; i <= 3; i++) {
-    myDFPlayer.readFileCountsInFolder(i); // seems useless but for reason I don't understand, the first call can be inaccurate
+    myDFPlayer.readFileCountsInFolder(i);  // seems useless but for reason I don't understand, the first call can be inaccurate
     myDFPlayer.readFileCountsInFolder(i);
-    folderCounts[i-1] = myDFPlayer.readFileCountsInFolder(i);
+    folderCounts[i - 1] = myDFPlayer.readFileCountsInFolder(i);
   }
 }
 
