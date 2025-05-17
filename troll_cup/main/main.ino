@@ -10,47 +10,47 @@ To get started see https://wiki.dfrobot.com/DFPlayer_Mini_SKU_DFR0299
 DFRobotDFPlayerMini myDFPlayer;
 void printDetail(uint8_t type, int value);
 
-const int buttonLeftPin = 5;  // the number of the pushbutton pin
+const int buttonLeftPin = 5;   // the number of the pushbutton pin
 const int buttonRightPin = 6;  // the number of the pushbutton pin
 
-int buttonLeftState = 0;  // variable for reading the pushbutton status
+int buttonLeftState = 0;   // variable for reading the pushbutton status
 int buttonRightState = 0;  // variable for reading the pushbutton status
 int busy = 0;
 
 int leftTrack = 1;
 int rightTrack = 1;
 
-void setup()
-{
+void setup() {
   FPSerial.begin(9600);
   Serial.begin(115200);
-  
-  if (!myDFPlayer.begin(FPSerial, /*isACK = */true, /*doReset = */true)) {  //Use serial to communicate with mp3.
+
+  if (!myDFPlayer.begin(FPSerial, /*isACK = */ true, /*doReset = */ true)) {  //Use serial to communicate with mp3.
     Serial.println(F("Unable to begin:"));
     Serial.println(F("1.Please recheck the connection!"));
     Serial.println(F("2.Please insert the SD card!"));
-    while(true);
+    while (true)
+      ;
   }
   Serial.println(F("DFPlayer Mini online."));
-  
-  myDFPlayer.setTimeOut(500); //Set seriaal communictaion time out 500ms
-  
+
+  myDFPlayer.setTimeOut(500);  //Set seriaal communictaion time out 500ms
+
   //----Set volume----
   myDFPlayer.volume(15);  //Set volume vlue (0~30).
-  
+
   //----Set different EQ----
   myDFPlayer.EQ(DFPLAYER_EQ_NORMAL);
-  
+
   //----Set device we use SD as default----
   myDFPlayer.outputDevice(DFPLAYER_DEVICE_SD);
-  
+
   pinMode(buttonLeftPin, INPUT);
   pinMode(buttonRightPin, INPUT);
-
 }
 
-void loop()
-{
+void loop() {
+  // TODO: loop through tracks until error and then reset tracklist
+
   buttonLeftState = digitalRead(buttonLeftPin);
   buttonRightState = digitalRead(buttonRightPin);
   if (buttonLeftState == HIGH && buttonRightState == HIGH && busy == 0) {
@@ -65,13 +65,13 @@ void loop()
     delay(500);
   }
 
-    if (buttonRightState == HIGH && busy == 0) {
+  if (buttonRightState == HIGH && busy == 0) {
     myDFPlayer.play(4);
     busy = 1;
     delay(500);
   }
   if (myDFPlayer.available()) {
-    printDetail(myDFPlayer.readType(), myDFPlayer.read()); // shows Number:2 Play Finished! after file finishes, not if it is skipped midway
+    printDetail(myDFPlayer.readType(), myDFPlayer.read());  // shows Number:2 Play Finished! after file finishes, not if it is skipped midway
     if (myDFPlayer.readType() == DFPlayerPlayFinished) {
       Serial.println(F("No longer busy!"));
       busy = 0;
@@ -80,7 +80,7 @@ void loop()
   }
 }
 
-void printDetail(uint8_t type, int value){
+void printDetail(uint8_t type, int value) {
   switch (type) {
     case TimeOut:
       Serial.println(F("Time Out!"));
@@ -139,6 +139,4 @@ void printDetail(uint8_t type, int value){
     default:
       break;
   }
-  
 }
-
