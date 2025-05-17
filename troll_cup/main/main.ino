@@ -53,21 +53,29 @@ void loop()
 {
   buttonLeftState = digitalRead(buttonLeftPin);
   buttonRightState = digitalRead(buttonRightPin);
+  if (buttonLeftState == HIGH && buttonRightState == HIGH && busy == 0) {
+    myDFPlayer.play(1);
+    busy = 1;
+    delay(500);
+  }
 
   if (buttonLeftState == HIGH && busy == 0) {
     myDFPlayer.play(5);
     busy = 1;
+    delay(500);
   }
 
     if (buttonRightState == HIGH && busy == 0) {
     myDFPlayer.play(4);
     busy = 1;
+    delay(500);
   }
   if (myDFPlayer.available()) {
     printDetail(myDFPlayer.readType(), myDFPlayer.read()); // shows Number:2 Play Finished! after file finishes, not if it is skipped midway
     if (myDFPlayer.readType() == DFPlayerPlayFinished) {
       Serial.println(F("No longer busy!"));
-      busy = 0;  
+      busy = 0;
+      delay(500);
     }
   }
 }
