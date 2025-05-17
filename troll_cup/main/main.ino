@@ -20,6 +20,10 @@ int busy = 0;
 int leftTrack = 1;
 int rightTrack = 1;
 
+int leftTrackCount = 0;
+int rightTrackCount = 0;
+int folderCounts[3];
+
 void setup() {
   FPSerial.begin(9600);
   Serial.begin(115200);
@@ -46,10 +50,21 @@ void setup() {
 
   pinMode(buttonLeftPin, INPUT);
   pinMode(buttonRightPin, INPUT);
+
+  // Get how many files are in each folder
+  for (int i = 1; i <= 3; i++) {
+    myDFPlayer.readFileCountsInFolder(i); // seems useless but for reason I don't understand, the first call can be inaccurate
+    myDFPlayer.readFileCountsInFolder(i);
+    folderCounts[i-1] = myDFPlayer.readFileCountsInFolder(i);
+  }
 }
 
 void loop() {
   // TODO: loop through tracks until error and then reset tracklist
+  // 001 - 011: left
+  // 012 - 023: right
+  // 024: coffee
+  // 025: portal radio
 
   buttonLeftState = digitalRead(buttonLeftPin);
   buttonRightState = digitalRead(buttonRightPin);
@@ -74,6 +89,23 @@ void loop() {
     printDetail(myDFPlayer.readType(), myDFPlayer.read());  // shows Number:2 Play Finished! after file finishes, not if it is skipped midway
     if (myDFPlayer.readType() == DFPlayerPlayFinished) {
       Serial.println(F("No longer busy!"));
+
+      Serial.print(F("Current file:"));
+      Serial.println(myDFPlayer.readCurrentFileNumber(DFPLAYER_DEVICE_SD)); // always says 5,actually readFileCounts()?
+      Serial.println(myDFPlayer.readCurrentFileNumber(DFPLAYER_DEVICE_SD)); // always says 5,actually readFileCounts()?
+
+      delay(100);
+      Serial.print(F("Files in 1 count:"));
+      Serial.println(folderCounts[0]); // accurate?
+      Serial.print(F("Files in 2 count:"));
+      Serial.println(folderCounts[1]); // accurate?
+      Serial.print(F("Files in 3 count:"));
+      Serial.println(folderCounts[2]); // accurate?
+      // 4 = are you stil there
+      // 5 = get mad
+      // 0 = lemons
+      // folder count = 1
+
       busy = 0;
       delay(500);
     }
