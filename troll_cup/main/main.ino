@@ -10,7 +10,6 @@ SoftwareSerial softSerial(/*rx =*/1, /*tx =*/0);
 #define FPSerial softSerial
 
 DFRobotDFPlayerMini myDFPlayer;
-void printDetail(uint8_t type, int value);
 
 const int buttonLeftPin = 3;   // the number of the pushbutton pin
 const int buttonRightPin = 4;  // the number of the pushbutton pin
@@ -23,26 +22,17 @@ int folderCounts[3];  // how many files are in folder 1/2/3
 
 void setup() {
   FPSerial.begin(9600);
-  Serial.begin(115200);
 
   if (!myDFPlayer.begin(FPSerial, /*isACK = */ true, /*doReset = */ true)) {  //Use serial to communicate with mp3.
-    Serial.println(F("Unable to begin:"));
-    Serial.println(F("1.Please recheck the connection!"));
-    Serial.println(F("2.Please insert the SD card!"));
     while (true)
       ;
   }
-  Serial.println(F("DFPlayer Mini online."));
+  myDFPlayer.setTimeOut(500);  //Set serial communictaion time out 500ms
 
-  myDFPlayer.setTimeOut(500);  //Set seriaal communictaion time out 500ms
+  delay(500);             // seemingly necessary otherwise the volume isn't set and it's very loud
+  myDFPlayer.volume(15);  //Set volume level (0~30).
 
-  //----Set volume----
-  myDFPlayer.volume(3);  //Set volume vlue (0~30).
-
-  //----Set different EQ----
   myDFPlayer.EQ(DFPLAYER_EQ_NORMAL);
-
-  //----Set device we use SD as default----
   myDFPlayer.outputDevice(DFPLAYER_DEVICE_SD);
 
   pinMode(buttonLeftPin, INPUT);
@@ -50,9 +40,9 @@ void setup() {
 
   // Get how many files are in each folder
   for (int i = 1; i <= 3; i++) {
-    myDFPlayer.readFileCountsInFolder(i); // seems useless but for reason I don't understand, the first call can be inaccurate
+    myDFPlayer.readFileCountsInFolder(i);  // seems useless but for reason I don't understand, the first call can be inaccurate
     myDFPlayer.readFileCountsInFolder(i);
-    folderCounts[i-1] = myDFPlayer.readFileCountsInFolder(i);
+    folderCounts[i - 1] = myDFPlayer.readFileCountsInFolder(i);
   }
 }
 
@@ -81,73 +71,11 @@ void loop() {
     delay(500);
   }
 
+  // if the track is finished, we're free to play another track
   if (myDFPlayer.available()) {
-    printDetail(myDFPlayer.readType(), myDFPlayer.read());  // shows Number:2 Play Finished! after file finishes, not if it is skipped midway
     if (myDFPlayer.readType() == DFPlayerPlayFinished) {
-      Serial.println(F("No longer busy!"));
       busy = 0;
       delay(500);
     }
-  }
-}
-
-void printDetail(uint8_t type, int value) {
-  switch (type) {
-    case TimeOut:
-      Serial.println(F("Time Out!"));
-      break;
-    case WrongStack:
-      Serial.println(F("Stack Wrong!"));
-      break;
-    case DFPlayerCardInserted:
-      Serial.println(F("Card Inserted!"));
-      break;
-    case DFPlayerCardRemoved:
-      Serial.println(F("Card Removed!"));
-      break;
-    case DFPlayerCardOnline:
-      Serial.println(F("Card Online!"));
-      break;
-    case DFPlayerUSBInserted:
-      Serial.println("USB Inserted!");
-      break;
-    case DFPlayerUSBRemoved:
-      Serial.println("USB Removed!");
-      break;
-    case DFPlayerPlayFinished:
-      Serial.print(F("Number:"));
-      Serial.print(value);
-      Serial.println(F(" Play Finished!"));
-      break;
-    case DFPlayerError:
-      Serial.print(F("DFPlayerError:"));
-      switch (value) {
-        case Busy:
-          Serial.println(F("Card not found"));
-          break;
-        case Sleeping:
-          Serial.println(F("Sleeping"));
-          break;
-        case SerialWrongStack:
-          Serial.println(F("Get Wrong Stack"));
-          break;
-        case CheckSumNotMatch:
-          Serial.println(F("Check Sum Not Match"));
-          break;
-        case FileIndexOut:
-          Serial.println(F("File Index Out of Bound"));
-          break;
-        case FileMismatch:
-          Serial.println(F("Cannot Find File"));
-          break;
-        case Advertise:
-          Serial.println(F("In Advertise"));
-          break;
-        default:
-          break;
-      }
-      break;
-    default:
-      break;
   }
 }
