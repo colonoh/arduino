@@ -4,17 +4,16 @@ To get started see https://wiki.dfrobot.com/DFPlayer_Mini_SKU_DFR0299
 
 #include "Arduino.h"
 #include "DFRobotDFPlayerMini.h"
-
 #include <SoftwareSerial.h>
 
-SoftwareSerial softSerial(/*rx =*/10, /*tx =*/11);
+SoftwareSerial softSerial(/*rx =*/1, /*tx =*/0);
 #define FPSerial softSerial
 
 DFRobotDFPlayerMini myDFPlayer;
 void printDetail(uint8_t type, int value);
 
-const int buttonLeftPin = 5;   // the number of the pushbutton pin
-const int buttonRightPin = 6;  // the number of the pushbutton pin
+const int buttonLeftPin = 3;   // the number of the pushbutton pin
+const int buttonRightPin = 4;  // the number of the pushbutton pin
 
 int buttonLeftState = 0;   // variable for reading the pushbutton status
 int buttonRightState = 0;  // variable for reading the pushbutton status
@@ -38,7 +37,7 @@ void setup() {
   myDFPlayer.setTimeOut(500);  //Set seriaal communictaion time out 500ms
 
   //----Set volume----
-  myDFPlayer.volume(15);  //Set volume vlue (0~30).
+  myDFPlayer.volume(3);  //Set volume vlue (0~30).
 
   //----Set different EQ----
   myDFPlayer.EQ(DFPLAYER_EQ_NORMAL);
@@ -51,9 +50,9 @@ void setup() {
 
   // Get how many files are in each folder
   for (int i = 1; i <= 3; i++) {
-    myDFPlayer.readFileCountsInFolder(i);  // seems useless but for reason I don't understand, the first call can be inaccurate
+    myDFPlayer.readFileCountsInFolder(i); // seems useless but for reason I don't understand, the first call can be inaccurate
     myDFPlayer.readFileCountsInFolder(i);
-    folderCounts[i - 1] = myDFPlayer.readFileCountsInFolder(i);
+    folderCounts[i-1] = myDFPlayer.readFileCountsInFolder(i);
   }
 }
 
