@@ -554,18 +554,19 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Device:C"
+		(symbol "Device:C_Small_US"
 			(pin_numbers
 				(hide yes)
 			)
 			(pin_names
 				(offset 0.254)
+				(hide yes)
 			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
 			(property "Reference" "C"
-				(at 0.635 2.54 0)
+				(at 0.254 1.778 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -573,8 +574,8 @@
 					(justify left)
 				)
 			)
-			(property "Value" "C"
-				(at 0.635 -2.54 0)
+			(property "Value" "C_Small_US"
+				(at 0.254 -2.032 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -583,15 +584,6 @@
 				)
 			)
 			(property "Footprint" ""
-				(at 0.9652 -3.81 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "~"
 				(at 0 0 0)
 				(effects
 					(font
@@ -600,7 +592,16 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "Unpolarized capacitor"
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "capacitor, small US symbol"
 				(at 0 0 0)
 				(effects
 					(font
@@ -627,25 +628,25 @@
 					(hide yes)
 				)
 			)
-			(symbol "C_0_1"
+			(symbol "C_Small_US_0_1"
 				(polyline
 					(pts
-						(xy -2.032 0.762) (xy 2.032 0.762)
+						(xy -1.524 0.508) (xy 1.524 0.508)
 					)
 					(stroke
-						(width 0.508)
+						(width 0.3048)
 						(type default)
 					)
 					(fill
 						(type none)
 					)
 				)
-				(polyline
-					(pts
-						(xy -2.032 -0.762) (xy 2.032 -0.762)
-					)
+				(arc
+					(start -1.524 -0.762)
+					(mid 0 -0.3734)
+					(end 1.524 -0.762)
 					(stroke
-						(width 0.508)
+						(width 0.3048)
 						(type default)
 					)
 					(fill
@@ -653,10 +654,10 @@
 					)
 				)
 			)
-			(symbol "C_1_1"
+			(symbol "C_Small_US_1_1"
 				(pin passive line
-					(at 0 3.81 270)
-					(length 2.794)
+					(at 0 2.54 270)
+					(length 2.032)
 					(name "~"
 						(effects
 							(font
@@ -673,8 +674,8 @@
 					)
 				)
 				(pin passive line
-					(at 0 -3.81 90)
-					(length 2.794)
+					(at 0 -2.54 90)
+					(length 2.032)
 					(name "~"
 						(effects
 							(font
@@ -693,7 +694,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Device:R"
+		(symbol "Device:R_US"
 			(pin_numbers
 				(hide yes)
 			)
@@ -704,15 +705,15 @@
 			(in_bom yes)
 			(on_board yes)
 			(property "Reference" "R"
-				(at 2.032 0 90)
+				(at 2.54 0 90)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
 				)
 			)
-			(property "Value" "R"
-				(at 0 0 90)
+			(property "Value" "R_US"
+				(at -2.54 0 90)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -720,7 +721,7 @@
 				)
 			)
 			(property "Footprint" ""
-				(at -1.778 0 90)
+				(at 1.016 -0.254 90)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -737,7 +738,7 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "Resistor"
+			(property "Description" "Resistor, US symbol"
 				(at 0 0 0)
 				(effects
 					(font
@@ -764,12 +765,61 @@
 					(hide yes)
 				)
 			)
-			(symbol "R_0_1"
-				(rectangle
-					(start -1.016 -2.54)
-					(end 1.016 2.54)
+			(symbol "R_US_0_1"
+				(polyline
+					(pts
+						(xy 0 2.286) (xy 0 2.54)
+					)
 					(stroke
-						(width 0.254)
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 2.286) (xy 1.016 1.905) (xy 0 1.524) (xy -1.016 1.143) (xy 0 0.762)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 0.762) (xy 1.016 0.381) (xy 0 0) (xy -1.016 -0.381) (xy 0 -0.762)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 -0.762) (xy 1.016 -1.143) (xy 0 -1.524) (xy -1.016 -1.905) (xy 0 -2.286)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 -2.286) (xy 0 -2.54)
+					)
+					(stroke
+						(width 0)
 						(type default)
 					)
 					(fill
@@ -777,7 +827,7 @@
 					)
 				)
 			)
-			(symbol "R_1_1"
+			(symbol "R_US_1_1"
 				(pin passive line
 					(at 0 3.81 270)
 					(length 1.27)
@@ -1382,6 +1432,12 @@
 		)
 	)
 	(junction
+		(at 66.04 68.58)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "3a0f833e-8cca-4420-b2cb-83784e8112eb")
+	)
+	(junction
 		(at 125.73 85.09)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -1394,22 +1450,10 @@
 		(uuid "73f0a033-5874-466a-8477-ce7d25b568f9")
 	)
 	(junction
-		(at 66.04 62.23)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "762c1272-0490-4ef8-ba72-11498cd831e8")
-	)
-	(junction
 		(at 109.22 59.69)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "83010a26-4483-4b7d-9255-880e0bb9edc9")
-	)
-	(junction
-		(at 66.04 69.85)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "8e884f7b-b0ed-4d19-84c5-171299967c77")
 	)
 	(junction
 		(at 109.22 106.68)
@@ -1422,6 +1466,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "ba0921f3-48f4-40a2-99a7-7b74b539e366")
+	)
+	(junction
+		(at 66.04 63.5)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "d9fa9194-42a7-4da4-bb21-d9f1467c19e3")
 	)
 	(junction
 		(at 71.12 59.69)
@@ -1447,7 +1497,7 @@
 	)
 	(wire
 		(pts
-			(xy 62.23 67.31) (xy 62.23 69.85)
+			(xy 62.23 67.31) (xy 62.23 68.58)
 		)
 		(stroke
 			(width 0)
@@ -1500,7 +1550,7 @@
 	)
 	(wire
 		(pts
-			(xy 62.23 62.23) (xy 66.04 62.23)
+			(xy 62.23 63.5) (xy 66.04 63.5)
 		)
 		(stroke
 			(width 0)
@@ -1511,7 +1561,7 @@
 	)
 	(wire
 		(pts
-			(xy 69.85 62.23) (xy 66.04 62.23)
+			(xy 69.85 63.5) (xy 66.04 63.5)
 		)
 		(stroke
 			(width 0)
@@ -1606,7 +1656,7 @@
 	)
 	(wire
 		(pts
-			(xy 69.85 69.85) (xy 66.04 69.85)
+			(xy 66.04 68.58) (xy 69.85 68.58)
 		)
 		(stroke
 			(width 0)
@@ -1614,6 +1664,17 @@
 			(color 0 0 0 1)
 		)
 		(uuid "6c07aed3-c68a-44d6-9957-7c0c047c47f2")
+	)
+	(wire
+		(pts
+			(xy 66.04 68.58) (xy 66.04 74.93)
+		)
+		(stroke
+			(width 0)
+			(type default)
+			(color 0 0 0 1)
+		)
+		(uuid "6de33221-5811-4e21-8527-e8af096bd582")
 	)
 	(wire
 		(pts
@@ -1755,17 +1816,6 @@
 	)
 	(wire
 		(pts
-			(xy 66.04 69.85) (xy 66.04 74.93)
-		)
-		(stroke
-			(width 0)
-			(type default)
-			(color 0 0 0 1)
-		)
-		(uuid "c8dbd32b-dddc-4f08-9a56-194f13ed88fd")
-	)
-	(wire
-		(pts
 			(xy 113.03 78.74) (xy 113.03 74.93)
 		)
 		(stroke
@@ -1829,7 +1879,7 @@
 	)
 	(wire
 		(pts
-			(xy 62.23 62.23) (xy 62.23 64.77)
+			(xy 62.23 63.5) (xy 62.23 64.77)
 		)
 		(stroke
 			(width 0)
@@ -1840,7 +1890,7 @@
 	)
 	(wire
 		(pts
-			(xy 66.04 59.69) (xy 66.04 62.23)
+			(xy 66.04 59.69) (xy 66.04 63.5)
 		)
 		(stroke
 			(width 0)
@@ -1861,7 +1911,7 @@
 	)
 	(wire
 		(pts
-			(xy 62.23 69.85) (xy 66.04 69.85)
+			(xy 62.23 68.58) (xy 66.04 68.58)
 		)
 		(stroke
 			(width 0)
@@ -2264,7 +2314,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Library:Keypad"
+		(property "Footprint" "Library:Keypad 2"
 			(at 133.35 80.01 0)
 			(effects
 				(font
@@ -2307,7 +2357,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R")
+		(lib_id "Device:R_US")
 		(at 154.94 92.71 0)
 		(mirror x)
 		(unit 1)
@@ -2335,8 +2385,8 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
-			(at 153.162 92.71 90)
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
+			(at 155.956 92.456 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2353,7 +2403,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Resistor"
+		(property "Description" "Resistor, US symbol"
 			(at 154.94 92.71 0)
 			(effects
 				(font
@@ -2404,7 +2454,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Library:Keypad"
+		(property "Footprint" "Library:Keypad 2"
 			(at 133.35 88.9 0)
 			(effects
 				(font
@@ -2536,7 +2586,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R")
+		(lib_id "Device:R_US")
 		(at 148.59 74.93 270)
 		(mirror x)
 		(unit 1)
@@ -2562,8 +2612,8 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
-			(at 148.59 76.708 90)
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
+			(at 148.336 73.914 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2580,7 +2630,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Resistor"
+		(property "Description" "Resistor, US symbol"
 			(at 148.59 74.93 0)
 			(effects
 				(font
@@ -2981,7 +3031,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:C")
+		(lib_id "Device:C_Small_US")
 		(at 69.85 66.04 180)
 		(unit 1)
 		(exclude_from_sim no)
@@ -3007,8 +3057,8 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
-			(at 68.8848 62.23 0)
+		(property "Footprint" "Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P2.50mm"
+			(at 69.85 66.04 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3025,7 +3075,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Unpolarized capacitor"
+		(property "Description" "capacitor, small US symbol"
 			(at 69.85 66.04 0)
 			(effects
 				(font
