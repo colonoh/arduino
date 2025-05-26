@@ -147,6 +147,413 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "DFR0299:DFR0299"
+			(pin_names
+				(offset 1.016)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "U"
+				(at -10.16 18.542 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left bottom)
+				)
+			)
+			(property "Value" "DFR0299"
+				(at -10.16 -25.4 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left bottom)
+				)
+			)
+			(property "Footprint" "DFR0299:MODULE_DFR0299"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Dfplayer - a Mini Mp3 Player"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+					(hide yes)
+				)
+			)
+			(property "MF" "DFRobot"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+					(hide yes)
+				)
+			)
+			(property "PACKAGE" "None"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+					(hide yes)
+				)
+			)
+			(property "PRICE" "None"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+					(hide yes)
+				)
+			)
+			(property "MP" "DFR0299"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+					(hide yes)
+				)
+			)
+			(property "AVAILABILITY" "Unavailable"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+					(hide yes)
+				)
+			)
+			(symbol "DFR0299_0_0"
+				(rectangle
+					(start -10.16 -22.86)
+					(end 10.16 17.78)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(pin input line
+					(at -15.24 10.16 0)
+					(length 5.08)
+					(name "BUSY"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "16"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -15.24 5.08 0)
+					(length 5.08)
+					(name "USB+"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "14"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -15.24 2.54 0)
+					(length 5.08)
+					(name "USB-"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "15"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -15.24 -2.54 0)
+					(length 5.08)
+					(name "ADKEY1"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "12"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -15.24 -5.08 0)
+					(length 5.08)
+					(name "ADKEY2"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "13"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -15.24 -10.16 0)
+					(length 5.08)
+					(name "SPK1"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "6"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -15.24 -12.7 0)
+					(length 5.08)
+					(name "SPK2"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "8"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 15.24 15.24 180)
+					(length 5.08)
+					(name "VCC"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin output line
+					(at 15.24 10.16 180)
+					(length 5.08)
+					(name "DAC_R"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin output line
+					(at 15.24 7.62 180)
+					(length 5.08)
+					(name "DAC_L"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin output line
+					(at 15.24 2.54 180)
+					(length 5.08)
+					(name "TX"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at 15.24 0 180)
+					(length 5.08)
+					(name "RX"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at 15.24 -5.08 180)
+					(length 5.08)
+					(name "IO1"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "9"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at 15.24 -7.62 180)
+					(length 5.08)
+					(name "IO2"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "11"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 15.24 -17.78 180)
+					(length 5.08)
+					(name "GND"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "7"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 15.24 -20.32 180)
+					(length 5.08)
+					(name "GND__1"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "10"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "Device:C"
 			(pin_numbers
 				(hide yes)
@@ -639,20 +1046,23 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "New_Library:DFPLAYER MINI"
+		(symbol "Mechanical:MountingHole"
+			(pin_names
+				(offset 1.016)
+			)
 			(exclude_from_sim no)
-			(in_bom yes)
+			(in_bom no)
 			(on_board yes)
-			(property "Reference" "U"
-				(at 0 1.778 0)
+			(property "Reference" "H"
+				(at 0 5.08 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
 				)
 			)
-			(property "Value" "DFPLAYER MINI"
-				(at 0 5.588 0)
+			(property "Value" "MountingHole"
+				(at 0 3.175 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -668,7 +1078,7 @@
 					(hide yes)
 				)
 			)
-			(property "Datasheet" ""
+			(property "Datasheet" "~"
 				(at 0 0 0)
 				(effects
 					(font
@@ -677,7 +1087,7 @@
 					(hide yes)
 				)
 			)
-			(property "Description" ""
+			(property "Description" "Mounting Hole without connection"
 				(at 0 0 0)
 				(effects
 					(font
@@ -686,306 +1096,34 @@
 					(hide yes)
 				)
 			)
-			(symbol "DFPLAYER MINI_0_1"
-				(rectangle
-					(start -11.43 13.97)
-					(end 11.43 -17.78)
+			(property "ki_keywords" "mounting hole"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "MountingHole*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "MountingHole_0_1"
+				(circle
+					(center 0 0)
+					(radius 1.27)
 					(stroke
-						(width 0)
+						(width 1.27)
 						(type default)
 					)
 					(fill
-						(type background)
-					)
-				)
-			)
-			(symbol "DFPLAYER MINI_1_1"
-				(pin power_in line
-					(at -13.97 11.43 0)
-					(length 2.54)
-					(name "VCC"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin input line
-					(at -13.97 7.62 0)
-					(length 2.54)
-					(name "RX"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin output line
-					(at -13.97 3.81 0)
-					(length 2.54)
-					(name "TX"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin output line
-					(at -13.97 0 0)
-					(length 2.54)
-					(name "DAC_R"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin output line
-					(at -13.97 -3.81 0)
-					(length 2.54)
-					(name "DAC_L"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "5"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin output line
-					(at -13.97 -7.62 0)
-					(length 2.54)
-					(name "SPK_1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "6"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin power_in line
-					(at -13.97 -11.43 0)
-					(length 2.54)
-					(name "GND"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "7"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin output line
-					(at -13.97 -15.24 0)
-					(length 2.54)
-					(name "SPK_2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "8"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin output line
-					(at 13.97 11.43 180)
-					(length 2.54)
-					(name "BUSY"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "16"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin unspecified line
-					(at 13.97 7.62 180)
-					(length 2.54)
-					(name "USB-"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "15"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin unspecified line
-					(at 13.97 3.81 180)
-					(length 2.54)
-					(name "USB+"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "14"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin input line
-					(at 13.97 0 180)
-					(length 2.54)
-					(name "ADKEY_2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "13"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin input line
-					(at 13.97 -3.81 180)
-					(length 2.54)
-					(name "ADKEY_1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "12"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin input line
-					(at 13.97 -7.62 180)
-					(length 2.54)
-					(name "IO_2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "11"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin power_in line
-					(at 13.97 -11.43 180)
-					(length 2.54)
-					(name "GND"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "10"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin input line
-					(at 13.97 -15.24 180)
-					(length 2.54)
-					(name "IO_1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "9"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
+						(type none)
 					)
 				)
 			)
@@ -1244,18 +1382,6 @@
 		)
 	)
 	(junction
-		(at 77.47 102.87)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "4984b347-7ed1-4579-838a-0545306ebf79")
-	)
-	(junction
-		(at 107.95 59.69)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "4df15c7d-814d-4291-9f68-a4ea2a271f65")
-	)
-	(junction
 		(at 125.73 85.09)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -1274,16 +1400,22 @@
 		(uuid "762c1272-0490-4ef8-ba72-11498cd831e8")
 	)
 	(junction
+		(at 109.22 59.69)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "83010a26-4483-4b7d-9255-880e0bb9edc9")
+	)
+	(junction
 		(at 66.04 69.85)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "8e884f7b-b0ed-4d19-84c5-171299967c77")
 	)
 	(junction
-		(at 109.22 102.87)
+		(at 109.22 106.68)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "b0b7eb3c-ab2f-4a51-8ab0-ae95b1c77db0")
+		(uuid "945981b0-b75a-426a-be00-b2a57e60d606")
 	)
 	(junction
 		(at 66.04 74.93)
@@ -1303,55 +1435,15 @@
 		(color 0 0 0 0)
 		(uuid "f012d61d-3aea-4750-bb8d-22f418321529")
 	)
-	(no_connect
-		(at 80.01 81.28)
-		(uuid "12e6643f-72fa-46b0-8252-d7ef625226ad")
-	)
-	(no_connect
-		(at 80.01 73.66)
-		(uuid "21cc49cc-5555-43d0-921c-73fb147db69a")
-	)
-	(no_connect
-		(at 80.01 77.47)
-		(uuid "48019db9-a45d-4d73-8463-dc30965b96c0")
+	(junction
+		(at 109.22 101.6)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "fc7f1f6a-2e25-492a-8e66-35205430be6e")
 	)
 	(no_connect
 		(at 154.94 80.01)
 		(uuid "72e5a864-2f23-4455-b710-7712cdf2f723")
-	)
-	(no_connect
-		(at 80.01 88.9)
-		(uuid "76d36076-7828-44ca-98d4-7293d6642361")
-	)
-	(no_connect
-		(at 107.95 85.09)
-		(uuid "9b2b3863-74f1-466d-ac7a-05e5f61a0b77")
-	)
-	(no_connect
-		(at 80.01 96.52)
-		(uuid "a30cd862-acf4-45ad-8e7e-32bedf38b9ec")
-	)
-	(no_connect
-		(at 107.95 81.28)
-		(uuid "acfb7636-b277-4603-9002-e1cea5275284")
-	)
-	(no_connect
-		(at 80.01 85.09)
-		(uuid "e528a3fe-6911-4beb-9136-ca36ea59fc18")
-	)
-	(no_connect
-		(at 80.01 69.85)
-		(uuid "ef730794-4775-4d87-a69e-10f9d132fb86")
-	)
-	(wire
-		(pts
-			(xy 113.03 96.52) (xy 113.03 93.98)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0391c628-c375-4b43-a079-c36479c3ff9a")
 	)
 	(wire
 		(pts
@@ -1377,6 +1469,27 @@
 	)
 	(wire
 		(pts
+			(xy 109.22 101.6) (xy 109.22 106.68)
+		)
+		(stroke
+			(width 0)
+			(type default)
+			(color 0 0 0 1)
+		)
+		(uuid "0af98de7-eacf-4b12-9f4e-08c16cc78bf2")
+	)
+	(wire
+		(pts
+			(xy 109.22 78.74) (xy 113.03 78.74)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1865e188-bb3b-452d-b12b-c97696b9d240")
+	)
+	(wire
+		(pts
 			(xy 144.78 93.98) (xy 144.78 85.09)
 		)
 		(stroke
@@ -1398,27 +1511,6 @@
 	)
 	(wire
 		(pts
-			(xy 107.95 96.52) (xy 113.03 96.52)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "23b7bebb-6e5f-4447-af69-e01d719770d3")
-	)
-	(wire
-		(pts
-			(xy 125.73 59.69) (xy 107.95 59.69)
-		)
-		(stroke
-			(width 0)
-			(type default)
-			(color 255 0 0 1)
-		)
-		(uuid "2d180f8d-4467-446c-b942-5469d50a8976")
-	)
-	(wire
-		(pts
 			(xy 69.85 62.23) (xy 66.04 62.23)
 		)
 		(stroke
@@ -1427,6 +1519,26 @@
 			(color 255 0 0 1)
 		)
 		(uuid "2f89468e-f342-4c20-b0e4-5ce186627916")
+	)
+	(wire
+		(pts
+			(xy 76.2 91.44) (xy 78.74 91.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "301ef174-0074-453b-bf00-eb1adfd32acd")
+	)
+	(wire
+		(pts
+			(xy 76.2 93.98) (xy 78.74 93.98)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "31526862-c3c3-41fb-ab59-e3804944fcb6")
 	)
 	(wire
 		(pts
@@ -1441,17 +1553,6 @@
 	)
 	(wire
 		(pts
-			(xy 77.47 92.71) (xy 80.01 92.71)
-		)
-		(stroke
-			(width 0)
-			(type default)
-			(color 0 0 0 1)
-		)
-		(uuid "41fa296d-2255-4a5e-a05f-2e4e1995a9e4")
-	)
-	(wire
-		(pts
 			(xy 138.43 85.09) (xy 139.7 85.09)
 		)
 		(stroke
@@ -1462,24 +1563,14 @@
 	)
 	(wire
 		(pts
-			(xy 113.03 91.44) (xy 113.03 88.9)
+			(xy 109.22 59.69) (xy 125.73 59.69)
 		)
 		(stroke
 			(width 0)
 			(type default)
+			(color 255 0 0 1)
 		)
-		(uuid "4de98b7c-f6cd-44eb-aaf3-7d47ab53014c")
-	)
-	(wire
-		(pts
-			(xy 109.22 102.87) (xy 77.47 102.87)
-		)
-		(stroke
-			(width 0)
-			(type default)
-			(color 0 0 0 1)
-		)
-		(uuid "57ffbd4b-cffb-450a-9655-c6a6d7c9febf")
+		(uuid "576a1348-d41b-4abe-8711-d8beb88252e0")
 	)
 	(wire
 		(pts
@@ -1491,17 +1582,6 @@
 			(color 255 0 0 1)
 		)
 		(uuid "5f7f474a-171d-48e6-a861-26c3c3e4641f")
-	)
-	(wire
-		(pts
-			(xy 109.22 102.87) (xy 109.22 92.71)
-		)
-		(stroke
-			(width 0)
-			(type default)
-			(color 0 0 0 1)
-		)
-		(uuid "62bedec8-66b7-4399-86ca-5e2d9b7656c3")
 	)
 	(wire
 		(pts
@@ -1548,17 +1628,17 @@
 	)
 	(wire
 		(pts
-			(xy 107.95 74.93) (xy 144.78 74.93)
+			(xy 109.22 81.28) (xy 115.57 81.28)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "9a91db27-9288-444b-b28a-44e7f1b3ea87")
+		(uuid "8863abe7-ce68-4906-9e70-4d941c79fdf6")
 	)
 	(wire
 		(pts
-			(xy 154.94 77.47) (xy 107.95 77.47)
+			(xy 154.94 77.47) (xy 115.57 77.47)
 		)
 		(stroke
 			(width 0)
@@ -1579,16 +1659,6 @@
 	)
 	(wire
 		(pts
-			(xy 107.95 74.93) (xy 107.95 73.66)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ae600c6b-573c-454b-bcae-b110a83ce61f")
-	)
-	(wire
-		(pts
 			(xy 71.12 59.69) (xy 66.04 59.69)
 		)
 		(stroke
@@ -1600,7 +1670,7 @@
 	)
 	(wire
 		(pts
-			(xy 66.04 74.93) (xy 66.04 102.87)
+			(xy 66.04 74.93) (xy 66.04 106.68)
 		)
 		(stroke
 			(width 0)
@@ -1611,7 +1681,7 @@
 	)
 	(wire
 		(pts
-			(xy 170.18 102.87) (xy 170.18 97.79)
+			(xy 170.18 106.68) (xy 170.18 97.79)
 		)
 		(stroke
 			(width 0)
@@ -1619,17 +1689,6 @@
 			(color 0 0 0 1)
 		)
 		(uuid "b510d545-0808-424d-91f4-358a3e1845ce")
-	)
-	(wire
-		(pts
-			(xy 170.18 102.87) (xy 109.22 102.87)
-		)
-		(stroke
-			(width 0)
-			(type default)
-			(color 0 0 0 1)
-		)
-		(uuid "b6854fd4-63b5-463b-876b-08c7ab02b40c")
 	)
 	(wire
 		(pts
@@ -1665,6 +1724,16 @@
 	)
 	(wire
 		(pts
+			(xy 115.57 81.28) (xy 115.57 77.47)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bd22c8c9-1f80-45e2-99a9-e6a567203f6f")
+	)
+	(wire
+		(pts
 			(xy 144.78 93.98) (xy 138.43 93.98)
 		)
 		(stroke
@@ -1675,18 +1744,7 @@
 	)
 	(wire
 		(pts
-			(xy 107.95 59.69) (xy 107.95 69.85)
-		)
-		(stroke
-			(width 0)
-			(type default)
-			(color 255 0 0 1)
-		)
-		(uuid "c20de903-6692-4c5b-be47-1269eeb81610")
-	)
-	(wire
-		(pts
-			(xy 77.47 102.87) (xy 66.04 102.87)
+			(xy 66.04 106.68) (xy 109.22 106.68)
 		)
 		(stroke
 			(width 0)
@@ -1708,24 +1766,45 @@
 	)
 	(wire
 		(pts
-			(xy 109.22 92.71) (xy 107.95 92.71)
+			(xy 113.03 78.74) (xy 113.03 74.93)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cfa08532-8a4f-4d5b-ad89-130366b97631")
+	)
+	(wire
+		(pts
+			(xy 109.22 59.69) (xy 109.22 66.04)
+		)
+		(stroke
+			(width 0)
+			(type default)
+			(color 255 0 0 1)
+		)
+		(uuid "da27b82d-2a97-441d-8f86-29179b8c2187")
+	)
+	(wire
+		(pts
+			(xy 109.22 99.06) (xy 109.22 101.6)
 		)
 		(stroke
 			(width 0)
 			(type default)
 			(color 0 0 0 1)
 		)
-		(uuid "d3d23e59-28b0-4030-ab90-ac3d68ac0fa9")
+		(uuid "db5be90e-2be3-4a88-a9b0-5d27dccf2d79")
 	)
 	(wire
 		(pts
-			(xy 113.03 88.9) (xy 107.95 88.9)
+			(xy 113.03 74.93) (xy 144.78 74.93)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "dcb4da7f-7795-4fc9-94ab-762efd8010e8")
+		(uuid "debc556c-fb4e-461f-8c51-d71a87b063d6")
 	)
 	(wire
 		(pts
@@ -1747,17 +1826,6 @@
 			(type default)
 		)
 		(uuid "e15f52da-942d-48c0-815d-ed6aa80e905d")
-	)
-	(wire
-		(pts
-			(xy 77.47 92.71) (xy 77.47 102.87)
-		)
-		(stroke
-			(width 0)
-			(type default)
-			(color 0 0 0 1)
-		)
-		(uuid "e2d0923f-a9a4-418f-af1f-9ea87cd2b785")
 	)
 	(wire
 		(pts
@@ -1804,7 +1872,18 @@
 	)
 	(wire
 		(pts
-			(xy 107.95 59.69) (xy 71.12 59.69)
+			(xy 109.22 106.68) (xy 170.18 106.68)
+		)
+		(stroke
+			(width 0)
+			(type default)
+			(color 0 0 0 1)
+		)
+		(uuid "ff29b5c2-982f-4623-99aa-f67b497c839f")
+	)
+	(wire
+		(pts
+			(xy 71.12 59.69) (xy 109.22 59.69)
 		)
 		(stroke
 			(width 0)
@@ -1813,36 +1892,56 @@
 		)
 		(uuid "ffbb5c1b-30a4-476d-934c-cf55381df724")
 	)
+	(label "GND"
+		(at 118.11 106.68 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "c205cfc3-b23b-4555-a353-e3b90c9f1a34")
+	)
+	(label "VDD"
+		(at 115.57 59.69 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "f37a97a0-f14a-4371-90c5-37cd25582204")
+	)
 	(symbol
-		(lib_id "Connector_Generic:Conn_01x02")
-		(at 118.11 93.98 0)
-		(mirror x)
+		(lib_id "Mechanical:MountingHole")
+		(at 109.22 45.72 0)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "2036941d-e6f1-4d32-929e-fd8cfb7e5d7e")
-		(property "Reference" "SPK1"
-			(at 118.11 87.63 0)
+		(uuid "054fea0d-3602-434b-afca-d74f4f430a65")
+		(property "Reference" "H1"
+			(at 111.76 44.4499 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
-		(property "Value" "~"
-			(at 118.11 87.63 0)
+		(property "Value" "MountingHole"
+			(at 111.76 46.9899 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
+				(justify left)
 			)
 		)
-		(property "Footprint" "Connector_JST:JST_PH_S2B-PH-K_1x02_P2.00mm_Horizontal"
-			(at 118.11 93.98 0)
+		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3"
+			(at 109.22 45.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1851,7 +1950,134 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 118.11 93.98 0)
+			(at 109.22 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Mounting Hole without connection"
+			(at 109.22 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(instances
+			(project ""
+				(path "/048dfcf1-cd7f-471a-9b32-6ddec1f396b1"
+					(reference "H1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Mechanical:MountingHole")
+		(at 138.43 45.72 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "1123c7ce-cc12-475e-9fe7-5472c08a37dd")
+		(property "Reference" "H3"
+			(at 140.97 44.4499 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "AlignmentHole"
+			(at 140.97 46.9899 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "MountingHole:MountingHole_2.5mm"
+			(at 138.43 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 138.43 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Mounting Hole without connection"
+			(at 138.43 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(instances
+			(project ""
+				(path "/048dfcf1-cd7f-471a-9b32-6ddec1f396b1"
+					(reference "H3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector_Generic:Conn_01x02")
+		(at 71.12 91.44 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "2036941d-e6f1-4d32-929e-fd8cfb7e5d7e")
+		(property "Reference" "SPK1"
+			(at 71.12 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "~"
+			(at 71.12 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "Connector_JST:JST_PH_S2B-PH-K_1x02_P2.00mm_Horizontal"
+			(at 71.12 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 71.12 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1860,7 +2086,7 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 118.11 93.98 0)
+			(at 71.12 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1878,6 +2104,134 @@
 			(project ""
 				(path "/048dfcf1-cd7f-471a-9b32-6ddec1f396b1"
 					(reference "SPK1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Mechanical:MountingHole")
+		(at 138.43 52.07 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "36936433-0ba6-4210-92c2-c83b96d25ffa")
+		(property "Reference" "H4"
+			(at 140.97 50.7999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "AlignmentHole"
+			(at 140.97 53.3399 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "MountingHole:MountingHole_2.5mm"
+			(at 138.43 52.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 138.43 52.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Mounting Hole without connection"
+			(at 138.43 52.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(instances
+			(project "PCB"
+				(path "/048dfcf1-cd7f-471a-9b32-6ddec1f396b1"
+					(reference "H4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Mechanical:MountingHole")
+		(at 109.22 50.8 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "37804da3-01c6-4499-9b31-00b7fcd22330")
+		(property "Reference" "H2"
+			(at 111.76 49.5299 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "MountingHole"
+			(at 111.76 52.0699 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3"
+			(at 109.22 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 109.22 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Mounting Hole without connection"
+			(at 109.22 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(instances
+			(project "PCB"
+				(path "/048dfcf1-cd7f-471a-9b32-6ddec1f396b1"
+					(reference "H2")
 					(unit 1)
 				)
 			)
@@ -1910,7 +2264,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Library:Keypad"
 			(at 133.35 80.01 0)
 			(effects
 				(font
@@ -2050,7 +2404,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Library:Keypad"
 			(at 133.35 88.9 0)
 			(effects
 				(font
@@ -2388,38 +2742,37 @@
 		)
 	)
 	(symbol
-		(lib_id "New_Library:DFPLAYER MINI")
+		(lib_id "DFR0299:DFR0299")
 		(at 93.98 81.28 0)
-		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "9ed998f1-9b25-4cd7-9107-0acde94ecb41")
 		(property "Reference" "U2"
-			(at 93.98 62.23 0)
+			(at 93.98 58.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "DFPLAYER MINI"
-			(at 93.98 64.77 0)
+		(property "Value" "DFR0299"
+			(at 93.98 60.96 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "DFR0299:MODULE_DFR0299"
 			(at 93.98 81.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify bottom)
 				(hide yes)
 			)
 		)
@@ -2438,6 +2791,66 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
+			)
+		)
+		(property "MF" "DFRobot"
+			(at 93.98 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "DESCRIPTION" "Dfplayer - a Mini Mp3 Player"
+			(at 93.98 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "PACKAGE" "None"
+			(at 93.98 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "PRICE" "None"
+			(at 93.98 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "MP" "DFR0299"
+			(at 93.98 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "AVAILABILITY" "Unavailable"
+			(at 93.98 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
 				(hide yes)
 			)
 		)

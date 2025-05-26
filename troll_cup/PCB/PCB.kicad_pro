@@ -51,7 +51,13 @@
           "min_clearance": 0.5
         }
       },
-      "diff_pair_dimensions": [],
+      "diff_pair_dimensions": [
+        {
+          "gap": 0.0,
+          "via_gap": 0.0,
+          "width": 0.0
+        }
+      ],
       "drc_exclusions": [],
       "meta": {
         "version": 2
@@ -180,7 +186,10 @@
           "td_width_to_size_filter_ratio": 0.9
         }
       ],
-      "track_widths": [],
+      "track_widths": [
+        0.0,
+        0.5
+      ],
       "tuning_pattern_settings": {
         "diff_pair_defaults": {
           "corner_radius_percentage": 80,
@@ -207,7 +216,12 @@
           "spacing": 0.6
         }
       },
-      "via_dimensions": [],
+      "via_dimensions": [
+        {
+          "diameter": 0.0,
+          "drill": 0.0
+        }
+      ],
       "zones_allow_external_fillets": false
     },
     "ipc2581": {
@@ -226,7 +240,64 @@
     "equivalence_files": []
   },
   "erc": {
-    "erc_exclusions": [],
+    "erc_exclusions": [
+      [
+        "pin_not_connected|1092200|711200|b207b299-4f8a-476c-aae9-5f70c4f56b9f|00000000-0000-0000-0000-000000000000|/048dfcf1-cd7f-471a-9b32-6ddec1f396b1|/048dfcf1-cd7f-471a-9b32-6ddec1f396b1|",
+        ""
+      ],
+      [
+        "pin_not_connected|1092200|736600|39ca41c0-0f19-43d7-9627-d3688580f513|00000000-0000-0000-0000-000000000000|/048dfcf1-cd7f-471a-9b32-6ddec1f396b1|/048dfcf1-cd7f-471a-9b32-6ddec1f396b1|",
+        ""
+      ],
+      [
+        "pin_not_connected|1092200|863600|8f1351bc-5da4-456d-be03-ce41eafd10d7|00000000-0000-0000-0000-000000000000|/048dfcf1-cd7f-471a-9b32-6ddec1f396b1|/048dfcf1-cd7f-471a-9b32-6ddec1f396b1|",
+        ""
+      ],
+      [
+        "pin_not_connected|1092200|889000|90478f8e-6007-46b1-93f0-c84d8b80f91e|00000000-0000-0000-0000-000000000000|/048dfcf1-cd7f-471a-9b32-6ddec1f396b1|/048dfcf1-cd7f-471a-9b32-6ddec1f396b1|",
+        ""
+      ],
+      [
+        "pin_not_connected|787400|711200|77985528-300b-40b9-9814-86f6fdbf8acd|00000000-0000-0000-0000-000000000000|/048dfcf1-cd7f-471a-9b32-6ddec1f396b1|/048dfcf1-cd7f-471a-9b32-6ddec1f396b1|",
+        ""
+      ],
+      [
+        "pin_not_connected|787400|762000|046dd688-ccfa-49db-b666-3dae9d9f478a|00000000-0000-0000-0000-000000000000|/048dfcf1-cd7f-471a-9b32-6ddec1f396b1|/048dfcf1-cd7f-471a-9b32-6ddec1f396b1|",
+        ""
+      ],
+      [
+        "pin_not_connected|787400|787400|8ccd3196-9dcf-4932-af8d-b3878aaa7e7b|00000000-0000-0000-0000-000000000000|/048dfcf1-cd7f-471a-9b32-6ddec1f396b1|/048dfcf1-cd7f-471a-9b32-6ddec1f396b1|",
+        ""
+      ],
+      [
+        "pin_not_connected|787400|838200|d5b85a57-25a3-4f77-a1e2-bf28b9d0ba1a|00000000-0000-0000-0000-000000000000|/048dfcf1-cd7f-471a-9b32-6ddec1f396b1|/048dfcf1-cd7f-471a-9b32-6ddec1f396b1|",
+        ""
+      ],
+      [
+        "pin_not_connected|787400|863600|aa0138a9-3e99-46a7-bf0f-2d1a93e7c659|00000000-0000-0000-0000-000000000000|/048dfcf1-cd7f-471a-9b32-6ddec1f396b1|/048dfcf1-cd7f-471a-9b32-6ddec1f396b1|",
+        ""
+      ],
+      [
+        "pin_not_driven|787400|711200|77985528-300b-40b9-9814-86f6fdbf8acd|00000000-0000-0000-0000-000000000000|/048dfcf1-cd7f-471a-9b32-6ddec1f396b1|/048dfcf1-cd7f-471a-9b32-6ddec1f396b1|",
+        ""
+      ],
+      [
+        "pin_not_driven|787400|762000|046dd688-ccfa-49db-b666-3dae9d9f478a|00000000-0000-0000-0000-000000000000|/048dfcf1-cd7f-471a-9b32-6ddec1f396b1|/048dfcf1-cd7f-471a-9b32-6ddec1f396b1|",
+        ""
+      ],
+      [
+        "pin_not_driven|787400|787400|8ccd3196-9dcf-4932-af8d-b3878aaa7e7b|00000000-0000-0000-0000-000000000000|/048dfcf1-cd7f-471a-9b32-6ddec1f396b1|/048dfcf1-cd7f-471a-9b32-6ddec1f396b1|",
+        ""
+      ],
+      [
+        "pin_not_driven|787400|838200|d5b85a57-25a3-4f77-a1e2-bf28b9d0ba1a|00000000-0000-0000-0000-000000000000|/048dfcf1-cd7f-471a-9b32-6ddec1f396b1|/048dfcf1-cd7f-471a-9b32-6ddec1f396b1|",
+        ""
+      ],
+      [
+        "pin_not_driven|787400|863600|aa0138a9-3e99-46a7-bf0f-2d1a93e7c659|00000000-0000-0000-0000-000000000000|/048dfcf1-cd7f-471a-9b32-6ddec1f396b1|/048dfcf1-cd7f-471a-9b32-6ddec1f396b1|",
+        ""
+      ]
+    ],
     "meta": {
       "version": 0
     },
@@ -446,7 +517,9 @@
     }
   },
   "libraries": {
-    "pinned_footprint_libs": [],
+    "pinned_footprint_libs": [
+      "Library"
+    ],
     "pinned_symbol_libs": []
   },
   "meta": {
@@ -486,7 +559,7 @@
       "gencad": "",
       "idf": "",
       "netlist": "",
-      "plot": "",
+      "plot": "gerber/",
       "pos_files": "",
       "specctra_dsn": "",
       "step": "",
