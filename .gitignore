@@ -1,0 +1,6 @@
+*.zip
+*.bak
+/troll_cup/PCB/PCB-backups
+*autosave*
+*fp-info-cache
+*.lck
