@@ -6,7 +6,7 @@ To get started see https://wiki.dfrobot.com/DFPlayer_Mini_SKU_DFR0299
 #include "DFRobotDFPlayerMini.h"
 #include <SoftwareSerial.h>
 
-SoftwareSerial softSerial(/*rx =*/1, /*tx =*/0);
+SoftwareSerial softSerial(/*rx =*/0, /*tx =*/1);
 #define FPSerial softSerial
 
 DFRobotDFPlayerMini myDFPlayer;
