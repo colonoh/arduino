@@ -48,6 +48,7 @@ void spiBegin() {
   pinMode(SCK_PIN, OUTPUT);
   digitalWrite(CS_PIN, HIGH);
   digitalWrite(SCK_PIN, LOW);
+  digitalWrite(MOSI_PIN, LOW);
 #else
   pinMode(CS_PIN, OUTPUT);
   digitalWrite(CS_PIN, HIGH);
@@ -58,6 +59,11 @@ void spiBegin() {
 }
 
 void setup() {
+#ifdef USE_BITBANG
+  // Disable internal pull-ups on ATTiny85 to minimize power consumption
+  MCUCR |= (1 << PUD);
+#endif
+
   pinMode(LED_PIN, OUTPUT);
 
   // Startup blink
@@ -90,6 +96,34 @@ void setup() {
       digitalWrite(LED_PIN, LOW);
       delay(100);
     }
+
+    delay(1000);
+
+    // Send Deep Power-Down command
+    digitalWrite(CS_PIN, LOW);
+    delayMicroseconds(1);
+    spiTransfer(0xB9);  // Deep Power-Down command
+    delayMicroseconds(1);
+    digitalWrite(CS_PIN, HIGH);
+
+    // Wait for chip to enter deep power-down (tDP = 3us typical)
+    delayMicroseconds(10);
+
+    // Bring pins low to ensure low power usage while powered down
+    digitalWrite(MOSI_PIN, LOW);
+    digitalWrite(SCK_PIN, LOW);
+    digitalWrite(MISO_PIN, LOW);
+
+    // Final LED blink to show power-down sent
+    digitalWrite(LED_PIN, HIGH);
+    delay(500);
+    digitalWrite(LED_PIN, LOW);
+
+    // Infinite loop - do nothing, measure current now
+    while(1) {
+      delay(1000);
+    }
+
   } else {
     // Fail - slow blink forever
     while(1) {
@@ -99,8 +133,9 @@ void setup() {
       delay(500);
     }
   }
+
 }
 
 void loop() {
-  // Your main code here
+  // Should never get here due to while(1) in setup
 }
