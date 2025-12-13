@@ -80,7 +80,9 @@ void setup() {
 
   // Expected: mfg=0xEF (Winbond), type=0x40, capacity=0x18
 
-  if (mfg == 0xEF) {
+  // if (mfg == 0xEF) {
+  // if (type == 0x40) {
+  if (capacity == 0x18) {
     // Success - fast blink 10 times
     for(int i=0; i<10; i++) {
       digitalWrite(LED_PIN, HIGH);
