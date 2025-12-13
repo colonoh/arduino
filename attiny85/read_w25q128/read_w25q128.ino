@@ -59,14 +59,8 @@ void spiBegin() {
 }
 
 void setup() {
-#ifdef USE_BITBANG
-  // Disable internal pull-ups on ATTiny85 to minimize power consumption
-  MCUCR |= (1 << PUD);
-#endif
-
-  pinMode(LED_PIN, OUTPUT);
-
   // Startup blink
+  pinMode(LED_PIN, OUTPUT);
   digitalWrite(LED_PIN, HIGH);
   delay(1000);
   digitalWrite(LED_PIN, LOW);
