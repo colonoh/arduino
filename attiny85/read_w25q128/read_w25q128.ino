@@ -58,6 +58,39 @@ void spiBegin() {
 #endif
 }
 
+// Read audio from flash and flash LED based on amplitude
+void playAudioWithLED(uint32_t startAddr, uint32_t numSamples) {
+  // Start continuous read from flash
+  digitalWrite(CS_PIN, LOW);
+  delayMicroseconds(1);
+  spiTransfer(0x03);  // Read Data command
+  spiTransfer((startAddr >> 16) & 0xFF);
+  spiTransfer((startAddr >> 8) & 0xFF);
+  spiTransfer(startAddr & 0xFF);
+
+  uint16_t avg = 0;
+  const uint8_t threshold = 30;  // Adjust for sensitivity
+
+  for (uint32_t i = 0; i < numSamples; i++) {
+    uint8_t sample = spiTransfer(0x00);
+
+    // Convert to amplitude (distance from center 128)
+    uint8_t amplitude = (sample > 128) ? (sample - 128) : (128 - sample);
+
+    // Simple IIR low-pass filter: avg = 7/8 * avg + 1/8 * amplitude
+    avg = ((avg * 7) + (amplitude * 8)) >> 3;
+
+    // Flash LED based on filtered amplitude
+    digitalWrite(LED_PIN, avg > threshold);
+
+    // Delay for ~16kHz sample rate (62.5us per sample)
+    delayMicroseconds(62);
+  }
+
+  digitalWrite(CS_PIN, HIGH);
+  digitalWrite(LED_PIN, LOW);
+}
+
 void setup() {
   // Startup blink
   pinMode(LED_PIN, OUTPUT);
@@ -90,6 +123,12 @@ void setup() {
       digitalWrite(LED_PIN, LOW);
       delay(100);
     }
+
+    delay(1000);
+
+    // Test: Read audio data and flash LED based on amplitude
+    // Assumes 8-bit unsigned PCM at 16kHz starting at address 0
+    playAudioWithLED(0x0000b6, 16000 * 5);  // 5 seconds of audio
 
     delay(1000);
 
