@@ -1,6 +1,5 @@
 #include <SPI.h>
 #include <avr/sleep.h>
-#include <util/delay.h>
 
 const int CS_PIN = 0;
 const int LED_PIN = 5;
@@ -13,27 +12,23 @@ const uint8_t threshold = 30;
 
 ISR(TCB0_INT_vect) {
   TCB0.INTFLAGS = TCB_CAPT_bm;
-
   if (samplesRemaining > 0) {
     uint8_t sample = SPI.transfer(0x00);
     DAC0.DATA = sample;
-
     uint8_t amplitude = (sample > 128) ? (sample - 128) : (128 - sample);
     avg = ((avg * 7) + (amplitude * 8)) >> 3;
     digitalWrite(LED_PIN, avg > threshold);
-
     samplesRemaining--;
   }
 }
 
 // Button interrupt for wake from sleep
 ISR(PORTB_PORT_vect) {
-  byte flags = VPORTB.INTFLAGS;
-  PORTB.PIN3CTRL &= ~PORT_ISC_gm;  // Disable interrupt
-  VPORTB.INTFLAGS = flags;         // Clear flags
+  PORTB.PIN3CTRL &= ~PORT_ISC_gm;
+  VPORTB.INTFLAGS = VPORTB.INTFLAGS;
 }
 
-void playAudioWithLED(uint32_t startAddr, uint32_t numSamples) {
+void playAudio(uint32_t startAddr, uint32_t numSamples) {
   // Wake flash from deep power-down
   digitalWrite(CS_PIN, LOW);
   SPI.transfer(0xAB);
@@ -43,7 +38,7 @@ void playAudioWithLED(uint32_t startAddr, uint32_t numSamples) {
   // Enable DAC and amp
   DAC0.CTRLA = DAC_ENABLE_bm | DAC_OUTEN_bm;
   DAC0.DATA = 128;
-  _delay_ms(10);
+  delay(10);
   digitalWrite(SD_PIN, HIGH);
 
   // Start flash read
@@ -55,10 +50,9 @@ void playAudioWithLED(uint32_t startAddr, uint32_t numSamples) {
 
   samplesRemaining = numSamples;
   TCB0.CTRLA |= TCB_ENABLE_bm;
-
   while (samplesRemaining > 0);
-
   TCB0.CTRLA &= ~TCB_ENABLE_bm;
+
   digitalWrite(CS_PIN, HIGH);
   digitalWrite(LED_PIN, LOW);
   DAC0.DATA = 128;
@@ -68,7 +62,6 @@ void playAudioWithLED(uint32_t startAddr, uint32_t numSamples) {
   digitalWrite(CS_PIN, LOW);
   SPI.transfer(0xB9);
   digitalWrite(CS_PIN, HIGH);
-
   DAC0.CTRLA = 0;
 }
 
@@ -82,10 +75,9 @@ void goToSleep() {
   }
   digitalWrite(CS_PIN, HIGH);
 
-  // Setup button for wake interrupt using LOW_LEVEL (recommended for sleep wake)
   pinMode(BTN_PIN, INPUT_PULLUP);
-  VPORTB.INTFLAGS = (1 << 3);  // Clear any pending interrupt on PB3
-  PORTB.PIN3CTRL = PORT_PULLUPEN_bm | PORT_ISC_LEVEL_gc;  // LOW level interrupt
+  VPORTB.INTFLAGS = (1 << 3);
+  PORTB.PIN3CTRL = PORT_PULLUPEN_bm | PORT_ISC_LEVEL_gc;
 
   set_sleep_mode(SLEEP_MODE_PWR_DOWN);
   sleep_enable();
@@ -93,19 +85,10 @@ void goToSleep() {
   sleep_cpu();
   sleep_disable();
 
-  // Blink LED to confirm wake (using busy-wait, not delay())
-  pinMode(LED_PIN, OUTPUT);
-  digitalWrite(LED_PIN, HIGH);
-  _delay_ms(100);
-  digitalWrite(LED_PIN, LOW);
-
-  // Debounce using busy-wait
-  _delay_ms(50);
+  delay(50);  // Debounce
 }
 
 void setup() {
-  delay(1000);  // Wait for power to stabilize before doing anything
-
   pinMode(LED_PIN, OUTPUT);
   pinMode(CS_PIN, OUTPUT);
   pinMode(SD_PIN, OUTPUT);
@@ -113,29 +96,18 @@ void setup() {
   digitalWrite(CS_PIN, HIGH);
   digitalWrite(SD_PIN, LOW);
 
-  digitalWrite(LED_PIN, HIGH);
-  delay(100);
-  digitalWrite(LED_PIN, LOW);
-
   SPI.begin();
-  sei();  // Enable global interrupts
 
-  // Setup TCB0 for 16kHz interrupt
+  // Setup TCB0 for 16kHz interrupt (10MHz / 625 = 16kHz)
   TCB0.CCMP = 624;
   TCB0.INTCTRL = TCB_CAPT_bm;
   TCB0.CTRLA = TCB_CLKSEL_CLKDIV1_gc;
 
-  // Blink LED to show we're running
-  digitalWrite(LED_PIN, HIGH);
-  delay(100);
-  digitalWrite(LED_PIN, LOW);
-
-  // Play once on startup
-  playAudioWithLED(0x0015f034, 16000UL * 2.5);
+  playAudio(0x0015f034, 16000UL * 2.5);
 }
 
 void loop() {
   goToSleep();
   SPI.begin();
-  playAudioWithLED(0x0015f034, 16000UL * 2.5);
+  playAudio(0x0015f034, 16000UL * 2.5);
 }
