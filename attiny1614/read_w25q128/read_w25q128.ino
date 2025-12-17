@@ -17,6 +17,7 @@ void playAudioWithLED(uint32_t startAddr, uint32_t numSamples) {
 
   for (uint32_t i = 0; i < numSamples; i++) {
     uint8_t sample = SPI.transfer(0x00);
+    DAC0.DATA = sample;  // Output to DAC
 
     // Convert to amplitude (distance from center 128)
     uint8_t amplitude = (sample > 128) ? (sample - 128) : (128 - sample);
@@ -33,6 +34,7 @@ void playAudioWithLED(uint32_t startAddr, uint32_t numSamples) {
 
   digitalWrite(CS_PIN, HIGH);
   digitalWrite(LED_PIN, LOW);
+  DAC0.DATA = 128;  // Return to center (silence)
 }
 
 void setup() {
@@ -40,6 +42,7 @@ void setup() {
   pinMode(CS_PIN, OUTPUT);
   digitalWrite(CS_PIN, HIGH);
 
+  DAC0.CTRLA = DAC_ENABLE_bm | DAC_OUTEN_bm;  // Enable DAC on PA6
   SPI.begin();
   delay(100);
 
