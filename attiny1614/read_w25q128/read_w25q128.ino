@@ -67,9 +67,24 @@ void setup() {
   playAudioWithLED(0x0015f034, 16000UL * 2.5);
   digitalWrite(SD_PIN, LOW);
 
-  // Disable peripherals before sleep
+  // Put flash chip into deep power-down mode
+  digitalWrite(CS_PIN, LOW);
+  SPI.transfer(0xB9);
+  digitalWrite(CS_PIN, HIGH);
+  delay(100);
+  
+  // Disable peripherals
   DAC0.CTRLA = 0;
+  ADC0.CTRLA = 0;
+  TCB0.CTRLA = 0;
   SPI.end();
+
+  // // Set all pins to output LOW to prevent floating inputs
+  for (uint8_t i = 0; i < 11; i++) {
+    pinMode(i, OUTPUT);
+    digitalWrite(i, LOW);
+  }
+  digitalWrite(CS_PIN, HIGH);  // Keep flash CS high (deselected)
 
   // Enter power-down sleep
   set_sleep_mode(SLEEP_MODE_PWR_DOWN);
