@@ -1,4 +1,5 @@
 #include <SPI.h>
+#include <avr/sleep.h>
 
 const int CS_PIN = 0;
 const int LED_PIN = 5;
@@ -65,6 +66,15 @@ void setup() {
 
   playAudioWithLED(0x0015f034, 16000UL * 2.5);
   digitalWrite(SD_PIN, LOW);
+
+  // Disable peripherals before sleep
+  DAC0.CTRLA = 0;
+  SPI.end();
+
+  // Enter power-down sleep
+  set_sleep_mode(SLEEP_MODE_PWR_DOWN);
+  sleep_enable();
+  sleep_cpu();
 }
 
 void loop() {
