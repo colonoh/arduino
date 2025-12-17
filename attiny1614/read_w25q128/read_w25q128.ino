@@ -52,17 +52,19 @@ void setup() {
   pinMode(CS_PIN, OUTPUT);
   pinMode(SD_PIN, OUTPUT);
   digitalWrite(CS_PIN, HIGH);
-  digitalWrite(SD_PIN, HIGH);
+  digitalWrite(SD_PIN, LOW);  // Keep amp off initially
 
   DAC0.CTRLA = DAC_ENABLE_bm | DAC_OUTEN_bm;
+  DAC0.DATA = 128;  // Set DAC to center before enabling amp
   SPI.begin();
+
+  delay(10);
+  digitalWrite(SD_PIN, HIGH);  // Now enable amp
 
   // Setup TCB0 for 16kHz interrupt (10MHz / 625 = 16kHz)
   TCB0.CCMP = 624;  // Period - 1
   TCB0.INTCTRL = TCB_CAPT_bm;  // Enable interrupt
   TCB0.CTRLA = TCB_CLKSEL_CLKDIV1_gc;  // Clock source, not enabled yet
-
-  delay(100);
 
   playAudioWithLED(0x0015f034, 16000UL * 2.5);
   digitalWrite(SD_PIN, LOW);
