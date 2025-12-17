@@ -2,6 +2,7 @@
 
 const int CS_PIN = 0;
 const int LED_PIN = 5;
+const int SD_PIN = 7;
 
 volatile uint32_t samplesRemaining = 0;
 volatile uint16_t avg = 0;
@@ -48,7 +49,9 @@ void playAudioWithLED(uint32_t startAddr, uint32_t numSamples) {
 void setup() {
   pinMode(LED_PIN, OUTPUT);
   pinMode(CS_PIN, OUTPUT);
+  pinMode(SD_PIN, OUTPUT);
   digitalWrite(CS_PIN, HIGH);
+  digitalWrite(SD_PIN, HIGH);
 
   DAC0.CTRLA = DAC_ENABLE_bm | DAC_OUTEN_bm;
   SPI.begin();
@@ -61,6 +64,7 @@ void setup() {
   delay(100);
 
   playAudioWithLED(0x0015f034, 16000UL * 2.5);
+  digitalWrite(SD_PIN, LOW);
 }
 
 void loop() {
