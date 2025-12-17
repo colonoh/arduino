@@ -1,10 +1,10 @@
 #include <SPI.h>
 #include <avr/sleep.h>
 
-const int CS_PIN = 0;
+const int CS_PIN = 0;  // PA4
 const int LED_PIN = 5;
-const int SD_PIN = 7;
-const int BTN_PIN = 4;  // Button to ground, uses internal pullup
+const int SD_PIN = 7;  // PB0
+const int BTN_PIN = 4;  // PB3 Button to ground, uses internal pullup
 
 volatile uint32_t samplesRemaining = 0;
 volatile uint16_t avg = 0;
@@ -102,12 +102,10 @@ void setup() {
   TCB0.CCMP = 624;
   TCB0.INTCTRL = TCB_CAPT_bm;
   TCB0.CTRLA = TCB_CLKSEL_CLKDIV1_gc;
-
-  playAudio(0x0015f034, 16000UL * 2.5);
 }
 
 void loop() {
   goToSleep();
   SPI.begin();
-  playAudio(0x0015f034, 16000UL * 2.5);
+  playAudio(0x0017f27d, 16000UL * 22);
 }
