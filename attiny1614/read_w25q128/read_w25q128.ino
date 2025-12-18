@@ -9,6 +9,7 @@ const int BUTTON1_PIN = 4;  // PB3 Button to ground, uses internal pullup
 volatile uint32_t samplesRemaining = 0;
 volatile uint16_t avg = 0;
 const uint8_t threshold = 30;
+volatile bool playing = false;  // true when actively playing audio
 
 ISR(TCB0_INT_vect) {
   TCB0.INTFLAGS = TCB_CAPT_bm;
@@ -20,6 +21,10 @@ ISR(TCB0_INT_vect) {
     digitalWrite(LED_PIN, avg > threshold);
     samplesRemaining--;
   }
+  else 
+  {
+    playing = false;  // we're done playing
+  } 
 }
 
 // Button interrupt for wake from sleep
@@ -49,8 +54,9 @@ void playAudio(uint32_t startAddr, uint32_t numSamples) {
   SPI.transfer(startAddr & 0xFF);
 
   samplesRemaining = numSamples;
+  playing = true;
   TCB0.CTRLA |= TCB_ENABLE_bm;
-  while (samplesRemaining > 0);
+  while (playing);
   TCB0.CTRLA &= ~TCB_ENABLE_bm;
 
   digitalWrite(MEM_CHIP_SELECT_PIN, HIGH);
