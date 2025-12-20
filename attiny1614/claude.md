@@ -1,0 +1,13 @@
+- I have a children's toy (Fisher-Price Baby & Toddler Toy Laugh & Learn Coffee Mug) and it plays sounds when you press a button. I've taken it apart and it has a small ~45x45mm PCB, connected to 3x LR44 batteries, and a 16Ω, 0.25W 2-wire speaker.
+- My end goal is to make the toy play it's original sounds, but also sometimes play a specific 5s audio clip that I can provide. I've re-recorded all the sounds the original toy makes, and I have my audio clip (in wav format). 
+- Since the toy doesn't have an on/off button, the solution needs to be able to last for 6+ months without changing the battery.
+- Please ask for clarification if you have questions
+- I prefer simple solutions as I think simplicity makes for fewer bugs
+- I also prefer shorter code as I think fewer lines means fewer bugs
+- I prefer using out of the box already-available solutions, over coding
+- I know Python
+- If there's a better solution to my overall problem than what I am considering, please let me know, instead of just answering my question.
+- The current implementation is to use an ATTiny1614 to get 8-bit 16Hz PCM audio from the w25q128 flash chip and send it through the DAC to a PAM8302A amp.
+- This will require a custom PCB, which I'm currently creating in EasyEDA.
+- If I'm saying something that is untruthful, let me know.
+- I'm only having 5 of these boards built.  I will probably only use 3 of them.
