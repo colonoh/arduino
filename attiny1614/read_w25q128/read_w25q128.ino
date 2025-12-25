@@ -101,6 +101,7 @@ void goToSleep() {
   sleep_disable();
 
   delay(50);  // Debounce
+  SPI.begin();
 }
 
 void setup() {
@@ -121,6 +122,5 @@ void setup() {
 
 void loop() {
   goToSleep();
-  SPI.begin();
   playAudio(0x0017f27d, 16000UL * 22);
 }
