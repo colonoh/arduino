@@ -112,7 +112,7 @@ void playAudio(uint32_t startAddr, uint32_t numSamples) {
   DAC0.CTRLA = 0;
 }
 
-void goToSleep() {
+void sleepsTimeYes() {
   SPI.end();
 
   // set (almost) all the pins to OUTPUT mode and send LOW to save power
@@ -160,7 +160,7 @@ void setup() {
 }
 
 void loop() {
-  goToSleep();
+  sleepsTimeYes();
   if (digitalRead(BUTTON1_PIN) == LOW || digitalRead(BUTTON2_PIN) == LOW) {
     randomSeed(micros());
     uint8_t idx = random(NUM_TRACKS);
