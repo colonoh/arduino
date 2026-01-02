@@ -12,6 +12,39 @@ volatile uint16_t avg = 0;
 const uint8_t threshold = 30;
 volatile bool playing = false;  // true when actively playing audio
 
+struct Track {
+  uint32_t offset;
+  uint32_t length;
+};
+
+const Track tracks[] = {
+  {0x000000d6, 0x00011280},  //  0: abcdelicious
+  {0x00011356, 0x00050b80},  //  1: abcsingwithme
+  {0x00061ed6, 0x00007b00},  //  2: bubbles
+  {0x000699d6, 0x00007080},  //  3: chimesounds
+  {0x00070a56, 0x00019080},  //  4: creamandsugar
+  {0x00089ad6, 0x00008580},  //  5: goodjob
+  {0x00092056, 0x0001ce00},  //  6: happyandyouknowit
+  {0x000aee56, 0x00006000},  //  7: hyper
+  {0x000b4e56, 0x0000d680},  //  8: iknewyoucouldbrewit
+  {0x000c24d6, 0x0000db00},  //  9: onetwothreemoresugarplease
+  {0x000cffd6, 0x00029d00},  // 10: onetwothreesingwithme
+  {0x000f9cd6, 0x00005e80},  // 11: pipessound
+  {0x000ffb56, 0x00035e80},  // 12: redorangeyellowgreenandblue
+  {0x001359d6, 0x0000be80},  // 13: sipbleepahhh
+  {0x00141856, 0x00007800},  // 14: someotherpipesthing
+  {0x00149056, 0x0000f780},  // 15: thanksalatte
+  {0x001587d6, 0x0000687e},  // 16: areyoustillthere
+  {0x0015f054, 0x00009cbc},  // 17: coffeeinmycoffeehole
+  {0x00168d10, 0x00009cbc},  // 18: coffeeinmycoffeehole
+  {0x001729cc, 0x00009cbc},  // 19: coffeeinmycoffeehole
+  {0x0017c688, 0x00009cbc},  // 20: coffeeinmycoffeehole
+  {0x00186344, 0x00009cbc},  // 21: coffeeinmycoffeehole
+  {0x00190000, 0x00004cbc},  // 22: getmad
+  {0x00194cbc, 0x000118d1},  // 23: i_like_your_style
+};
+const uint8_t NUM_TRACKS = 24;
+
 // triggers when Timer/Counter B0 fires, every 1/16,000th of a second
 ISR(TCB0_INT_vect) {
   TCB0.INTFLAGS = TCB_CAPT_bm;  // clears the interrupt flag
@@ -125,9 +158,9 @@ void setup() {
 
 void loop() {
   goToSleep();
-  if (digitalRead(BUTTON1_PIN) == LOW) {
-    playAudio(0x0015f054, 16000UL * 2.5);
-  } else if (digitalRead(BUTTON2_PIN) == LOW) {
-    playAudio(0x00194cbc, 16000UL * 4.5);  // TODO: Change to different audio address/length
+  if (digitalRead(BUTTON1_PIN) == LOW || digitalRead(BUTTON2_PIN) == LOW) {
+    randomSeed(micros());
+    uint8_t idx = random(NUM_TRACKS);
+    playAudio(tracks[idx].offset, tracks[idx].length);
   }
 }
