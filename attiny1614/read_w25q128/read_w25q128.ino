@@ -154,6 +154,9 @@ void setup() {
   TCB0.CCMP = 624;
   TCB0.INTCTRL = TCB_CAPT_bm;  // Enables the capture interrupt, which fires when the counter reaches CCMP.
   TCB0.CTRLA = TCB_CLKSEL_CLKDIV1_gc;  // Sets clock source to CLK_PER with no prescaler (divide by 1).
+
+  // play the intro song
+  playAudio(0x001a658d, 0x00056398); 
 }
 
 void loop() {
