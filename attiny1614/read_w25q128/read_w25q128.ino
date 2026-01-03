@@ -50,7 +50,7 @@ ISR(TCB0_INT_vect) {
   TCB0.INTFLAGS = TCB_CAPT_bm;  // clears the interrupt flag
   if (samplesRemaining > 0) {
     uint8_t sample = SPI.transfer(0x00);  // get a byte from the memory chip
-    DAC0.DATA = sample;
+    DAC0.DATA = 128 + ((int8_t)(sample - 128) >> 1);  // 50% volume
 
     // turn on/off the LED so it looks like an audio VU meter
     uint8_t amplitude = (sample > 128) ? (sample - 128) : (128 - sample);  // calculates the absolute deviation from center (128 is silence in unsigned 8-bit audio)
