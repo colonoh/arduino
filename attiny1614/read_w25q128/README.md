@@ -1,8 +1,10 @@
 8-bit, 16kHz, raw (headerless) PCM
 
-Convert from mp3 to raw to bin file using arduino/python scripts/create_flash_image.py
+https://www.pi4j.com/1.2/pins/model-b-rev2.html
+https://mtm.cba.mit.edu/2021/2021-10_microcontroller-primer/fab-arduino-tiny/ATtiny_x14.gif 
 
-## Steps to popualte the memory
+
+## Steps to write the audio data
 1. Copy all the mp3 files to a new folder called `source` in the directory as create_flash_image.py
 2. Make sure `ffmpeg` is present
 3. `python create_flash_image.py output.bin source`
@@ -13,7 +15,7 @@ Convert from mp3 to raw to bin file using arduino/python scripts/create_flash_im
 7. flashrom -p linux_spi:dev=/dev/spidev0.0,spispeed=2048 -v output.bin
 
 
-Example ouput from the Python script:
+Example output from the Python script:
 ```
 Track table:
   Idx  Offset      Length      Duration   Filename
@@ -47,6 +49,6 @@ Track table:
 ```
 
 ## Steps to program the MCU
-1. Conenct to the 3V3, GND, and UPDI pins with a programmer
-2. Make sure all the Arduino setings are correct (10MHz internal)
+1. Connect to the 3V3, GND, and UPDI pins with a programmer
+2. Make sure all the Arduino settings are correct (10MHz internal)
 3. Upload Using Programmer
